@@ -4,9 +4,10 @@ import Day from "./Day";
 interface CalendarProps {
   month: number;
   year: number;
+  onDayClick: (date: number) => void;
 }
 // Main component that handles the calendar display and navigation
-const Calendar: React.FC<CalendarProps> = ({ month, year }) => {
+const Calendar: React.FC<CalendarProps> = ({ month, year, onDayClick }) => {
   // Calculate the number of days in the current month
   const daysInMonth = new Date(year, month + 1, 0).getDate();
 
@@ -14,7 +15,7 @@ const Calendar: React.FC<CalendarProps> = ({ month, year }) => {
   const renderDays = () => {
     const days = [];
     for (let i = 1; i <= daysInMonth; i++) {
-      days.push(<Day key={i} date={i} />);
+      days.push(<Day key={i} date={i} onDayClick={onDayClick} />);
     }
     return days;
   };
