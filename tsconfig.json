@@ -2,12 +2,12 @@
   "compilerOptions": {
     "target": "esnext",
     "module": "esnext",
-    "jsx": "react-jsx",
+    "moduleResolution": "node",
     "strict": true,
+    "jsx": "react-jsx",
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "allowSyntheticDefaultImports": true,
-    "moduleResolution": "node"
-  }
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": ["src", "vite.config.ts"]
 }

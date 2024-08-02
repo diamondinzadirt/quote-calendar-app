@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import MonthNavigation from "./MonthNavigation";
-import Calendar from "./Calendar";
-import QuotesModal from "./UI/QuotesModal";
+import MonthNavigation from "../components/MonthNavigation";
+import Calendar from "../components/Calendar";
+import QuotesModal from "../components/UI/QuotesModal";
 
 const AllQuotes: React.FC = () => {
   const [month, setMonth] = useState(new Date().getMonth());
@@ -21,9 +21,14 @@ const AllQuotes: React.FC = () => {
     console.log(selectedDate, temperature, quotes);
   };
 
-  const handleAddQuote = () => {
+  const handleAddQuote = (
+    title: string,
+    startTime: string,
+    endTime: string
+  ) => {
     // Logic to add a new quote
-    setQuotes([...quotes, `New Quote ${quotes.length + 1}`]);
+    const newQuote = `${title} from ${startTime} to ${endTime}`;
+    setQuotes([...quotes, newQuote]);
   };
 
   return (
